@@ -2,8 +2,9 @@ import "../CVUpload/CVUpload.css";
 import { useState, useEffect } from "react";
 import { db, storage } from "../../utils/firebase";
 import { collection, setDoc, doc } from "firebase/firestore";
-import { FaRegImage } from "react-icons/fa6";
 import { getAuth } from "firebase/auth";
+import pdfToText from 'react-pdftotext';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 import {
   ref,
@@ -33,7 +34,6 @@ function CVUpload() {
       getDownloadURL(snapshot.ref).then((url) => {
         setImageUrls((prev) => [...prev, url]);
       });
-      // setNewURL({imageUrls.map((url) => {return <img src={url} />;})});
       alert("Submission received!");
     });
   };
@@ -70,13 +70,12 @@ function CVUpload() {
   const [newInterview, setNewInterview] = useState("");
   const [newResult, setNewResult] = useState("");
   const [newSummary, setNewSummary] = useState("");
-  const [newURL, setNewURL] = useState("");
-
+  const [test , setTest] = useState("");
 
   const usersCollectionRef = collection(db, 'Collection');
   const userDocRef = doc(usersCollectionRef, userId);
 
-  const createUser = async () => {
+  /*const createUser = async () => {
     await setDoc(userDocRef, {
       name: newName,
       ID: newID,
@@ -90,9 +89,63 @@ function CVUpload() {
       interview: newInterview,
       result: newResult,
       summmary: newSummary,
-      url: newURL,
     });
-  };
+  };*/
+
+  function extractText(event) {
+    const file = event.target.files[0]
+    pdfToText(file)
+        .then(text => {
+            //Summariser(text);
+            setTest(text);
+          
+  })
+        .catch(error => console.error("Failed to extract text from pdf"))
+
+}
+
+  const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+  const [loading, setLoading] = useState(false);
+
+  async function Summariser(test) {
+    try { 
+      setLoading(true);
+      const genAI = new GoogleGenerativeAI(API_KEY);
+      const model = genAI.getGenerativeModel({ 
+        model: "gemini-1.5-pro",
+        systemInstruction: "Your task is to summarize the resume of the candidate that I am about to give you. Analyze the document, and detect the name, telephone number, email, list of experience and skills. Respond strictly with the fields in a numbered list, and nothing else—no explanations, no additional text.",  });
+        
+      const result = await model.generateContent(test);
+      const final_text = result.response.text();
+      setLoading(false);
+      console.log("Summariser:" + final_text)
+
+      //setNewSummary(final_text);
+      const usersCollectionRef = collection(db, 'Collection');
+      const userDocRef = doc(usersCollectionRef, userId);
+
+        // Save final_text to Firestore
+        await setDoc(userDocRef, {
+            name: newName,
+            ID: newID,
+            email: newEmail,
+            contact: newContact,
+            position1: newPosition1,
+            position2: newPosition2,
+            CV: newCV, 
+            admin: newAdmin,
+            grading: newGrading,
+            interview: newInterview,
+            result: newResult,
+            summary: final_text, // Change newSummary to final_text
+        });
+
+      console.log("After cvvvvv:" + final_text);
+    } catch (error) {
+      setLoading(false);
+      console.error("Summariser error: ", error);
+    }
+  }
 
   return (
     <>
@@ -112,7 +165,7 @@ function CVUpload() {
                 setImageUpload(event.target.files[0]);
               }}
             />
-            {/* <img className="profile-photo" src="{imageUrls.map((url) => {return <img src={url} />;})}" alt={""}/>  */}
+            {/* <img className="profile-photo" src="{imageUrls.map((url) => {return <img src={url} />;})}" alt={""}/> */}
           </div>
         </div>
         <br></br>
@@ -226,6 +279,7 @@ function CVUpload() {
               type="file"
               onChange={(event) => {
                 setImageUpload2(event.target.files[0]);
+                extractText(event);
               }}
             />
           </div>
@@ -236,7 +290,8 @@ function CVUpload() {
           <button
             name="submit"
             onClick={() => {
-              createUser();
+              Summariser(test);
+             // createUser();
               uploadFile();
               uploadFile2();
             }}
