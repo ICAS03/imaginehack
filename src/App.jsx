@@ -9,6 +9,7 @@ import DI_Interview from './components/Interview/DI_Interview';
 import CVUpload from './components/CVUpload/CVUpload';
 import Profile from './components/User Profile/userProfile';
 import CandidateDashboard from "./components/Candidate-Dashboard/c_dashboard.jsx";
+import Testing from './components/Testing.jsx';
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Route path='/CVUpload' element={<CVUpload></CVUpload>} ></Route>
       <Route path='/Profile' element={<Profile></Profile>} ></Route>
       <Route path="/cdashboard" element={<CandidateDashboard></CandidateDashboard>}></Route>
+      <Route path='/testing' element={<Testing></Testing>}></Route>
     </Routes>
    </Router>
   )
