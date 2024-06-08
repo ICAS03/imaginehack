@@ -33,6 +33,7 @@ function CVUpload() {
       getDownloadURL(snapshot.ref).then((url) => {
         setImageUrls((prev) => [...prev, url]);
       });
+      // setNewURL({imageUrls.map((url) => {return <img src={url} />;})});
       alert("Submission received!");
     });
   };
@@ -69,6 +70,8 @@ function CVUpload() {
   const [newInterview, setNewInterview] = useState("");
   const [newResult, setNewResult] = useState("");
   const [newSummary, setNewSummary] = useState("");
+  const [newURL, setNewURL] = useState("");
+
 
   const usersCollectionRef = collection(db, 'Collection');
   const userDocRef = doc(usersCollectionRef, userId);
@@ -87,6 +90,7 @@ function CVUpload() {
       interview: newInterview,
       result: newResult,
       summmary: newSummary,
+      url: newURL,
     });
   };
 
@@ -108,7 +112,7 @@ function CVUpload() {
                 setImageUpload(event.target.files[0]);
               }}
             />
-            {/* <img className="profile-photo" src="{imageUrls.map((url) => {return <img src={url} />;})}" alt={""}/> */}
+            {/* <img className="profile-photo" src="{imageUrls.map((url) => {return <img src={url} />;})}" alt={""}/>  */}
           </div>
         </div>
         <br></br>
