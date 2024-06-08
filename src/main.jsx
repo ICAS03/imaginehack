@@ -7,6 +7,6 @@ import DI_Interview from "./components/Interview/DI_Interview.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <DI_Interview />
+    <App></App>
   </React.StrictMode>
 );
