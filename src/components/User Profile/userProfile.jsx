@@ -22,6 +22,7 @@ import { useLocation } from "react-router";
 const userProfile = () => {
   //const [userData, setUserData] = useState([]);
   const [data, setData] = useState("");
+  const [data2, setData2] = useState("");
   const [text, setText] = useState("");
   //const userId = auth.currentUser?.uid;
   const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
@@ -41,7 +42,11 @@ const userProfile = () => {
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-pro",
     systemInstruction:
-      "You will summarising the text into a paragraph explaining why they would be suitable for a job",
+      "You will be evaluating they would be suitable for" +
+      document.querySelector("#position1") +
+      "and" +
+      document.querySelector("#position2") +
+      "job positions based on their experience in a paragraph of 80 words without symbols. You will evaluate them strictly based on their job requirements",
   });
 
   async function generateSummary() {
@@ -53,6 +58,7 @@ const userProfile = () => {
       const result = await chatSession.sendMessage(
         user.summary + user.interview
       );
+
       const finaltext = result.response.text();
       console.log(finaltext);
       setData(finaltext);
@@ -92,9 +98,9 @@ const userProfile = () => {
                     <div className="appliedJobs">
                       <h2>Applied Jobs</h2>
                       <br></br>
-                      <h4>1. {user.position1}</h4>
+                      <h4 id="position1">1. {user.position1}</h4>
                       <br></br>
-                      <h4>2. {user.position2}</h4>
+                      <h4 id="position2">2. {user.position2}</h4>
                     </div>
                     <br></br>
                     <hr></hr>
@@ -161,7 +167,7 @@ const userProfile = () => {
                     <br></br>
                     <h3>Suggested Result:</h3>
                     <div className="result1">
-                      <p>{user.ID}</p>
+                      <p>{data2}</p>
                     </div>
                   </div>
                 </section>
