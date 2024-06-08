@@ -27,7 +27,6 @@
     margin-top: 10px;
     margin-bottom: 10px;
     margin-left: 16px;
-    
 }
 
 .nav-menu li {
@@ -36,12 +35,14 @@
     align-items: center;
     color: #7c8493;
     text-decoration: none;
+    
 }
 
 .nav-menu li:hover {
     transition: all 0.1s ease-in;
     background-color: #ccdbf0; 
     color: #1B4893;
+    border-right:2px solid #1B4893;
 }
 
 .nav-menu-link {
@@ -68,4 +69,5 @@
     color: #7c8493;
     font-size: 12px;
     font-weight: 600;
+    margin-top: 20px;
 }
