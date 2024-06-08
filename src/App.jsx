@@ -13,7 +13,6 @@ import CandidateDashboard from "./components/Candidate-Dashboard/c_dashboard.jsx
 
 function App() {
   return (
-
    <Router>
     <Routes>
       {/* <Route index element={<Dashboard></Dashboard>}></Route> */}
@@ -24,7 +23,6 @@ function App() {
       <Route path='/start-interview' element={<DI_Main></DI_Main>}></Route>
       <Route path='/interview' element={<DI_Interview></DI_Interview>}></Route>
       <Route path='/CVUpload' element={<CVUpload></CVUpload>} ></Route>
-
       <Route path='/Profile' element={<Profile></Profile>} ></Route>
       <Route path="/cdashboard" element={<CandidateDashboard></CandidateDashboard>}></Route>
     </Routes>
