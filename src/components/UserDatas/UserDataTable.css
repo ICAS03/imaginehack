@@ -1,0 +1,108 @@
+/* UserDataTable.css */
+.main-content {
+    padding-top: 180px;     
+    padding-left: 240px; 
+}
+
+.table-container {
+    margin-top: 20px;
+    margin-left: 20.5%;
+    margin-right: 10px;
+    box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-head {
+    background-color: #1B4893;
+}
+
+
+.table-cell, .table-head-cell {
+    padding: 16px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.table-head-cell {
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    font-size: 15px;
+}
+
+.view-more-button {
+    background-color: #1976d2;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.view-more-button:hover {
+    background-color: #115293;
+}
+
+/* Add styles for grading */
+.grading.strong-fit {
+    background-color: #d4edda;
+    color: #155724;
+    font-weight: bold;
+}
+
+.grading.medium-fit {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.grading.weak-fit {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Add styles for navbartop */
+.navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.navbar-top-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.div-post-a-job {
+    display: flex;
+    align-items: center;
+}
+
+.btn-post-job {
+    background-color: #1976d2;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-post-job:hover {
+    background-color: #115293;
+}
+
+.btn-icon {
+    margin-right: 8px;
+    font-size: 20px;
+}
