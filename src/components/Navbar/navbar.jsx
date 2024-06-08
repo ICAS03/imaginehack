@@ -49,10 +49,10 @@ const navbar = () => {
           </Link>*/}
         </li>
         <li>
-          <BiSearch size={20} className="navbar-icon" /> Digital Interview
-          {/*<Link to="/dashboard" className="nav-menu-link">
+          <BiSearch size={20} className="navbar-icon" /> 
+          <Link to="/start-interview" className="nav-menu-link">
             Digital Interview
-          </Link>*/}
+          </Link>
         </li>
         <li>
           <CgList size={20} className="navbar-icon" />My Application

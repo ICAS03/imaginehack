@@ -103,3 +103,23 @@
     text-align: right;
     margin: auto;
 }
+
+.start-btn{
+    margin-right: 15%;
+    padding: 10px 30px;
+    color: #1B4893;
+    font-weight: 500;
+    background-color: #925bff2c;
+    border-width: 0;
+}
+  
+
+.start-div{
+    text-align: right;
+    margin: auto;
+}
+
+.buttons {
+    margin : auto;
+    display: flex;
+}
