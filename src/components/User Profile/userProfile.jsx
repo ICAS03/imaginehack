@@ -16,19 +16,18 @@ import Navbar from "../Navbar/navbar";
 import Navbartop from "../Navbar/navbartop";
 import { AiOutlineMail } from "react-icons/ai";
 import { BsPhone } from "react-icons/bs";
+import { GoogleGenerativeAI } from "@google/generative-ai";
+import { useLocation } from "react-router";
 
 const userProfile = () => {
-  const [userData, setUserData] = useState([]);
-  const userId = auth.currentUser?.uid;
-
-  const fetchUserData = async () => {
-    const userRef = doc(db, "Collection", userId);
-    const userDoc = await getDoc(userRef);
-
-    if (userDoc.exists()) {
-      setUserData(userDoc.data());
-    }
-  };
+  //const [userData, setUserData] = useState([]);
+  const [data, setData] = useState("");
+  const [text, setText] = useState("");
+  //const userId = auth.currentUser?.uid;
+  const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+  const genAI = new GoogleGenerativeAI(API_KEY);
+  const location = useLocation();
+  const { user } = location.state;
 
   const generationConfig = {
     temperature: 0.5,
@@ -42,11 +41,28 @@ const userProfile = () => {
   const model = genAI.getGenerativeModel({
     model: "gemini-1.5-pro",
     systemInstruction:
-      "You will be acting as a HR interviewer and you will be generating follow-up question at a time based on the candidate's response in a formal and professional manner. Don't give any expression , just questions.",
+      "You will summarising the text into a paragraph explaining why they would be suitable for a job",
   });
 
+  async function generateSummary() {
+    try {
+      const chatSession = model.startChat({
+        generationConfig,
+      });
+
+      const result = await chatSession.sendMessage(
+        user.summary + user.interview
+      );
+      const finaltext = result.response.text();
+      console.log(finaltext);
+      setData(finaltext);
+    } catch (error) {
+      console.error("fetchDataFromGeminiAPI error: ", error);
+    }
+  }
+
   useEffect(() => {
-    fetchUserData();
+    generateSummary();
   }, []);
   //{userData.name}
   return (
@@ -67,8 +83,8 @@ const userProfile = () => {
                       {/* <img className="profile-photo" src="{imageUrls.map((url) => {return <img src={url} />;})}" alt={""}/> */}
                     </div>
                     <div className="details">
-                      <h2>{userData.name}</h2>
-                      <h3>{userData.ID}</h3>
+                      <h2>{user.name}</h2>
+                      <h3>{user.ID}</h3>
                     </div>
                   </div>
                   <hr></hr>
@@ -76,9 +92,9 @@ const userProfile = () => {
                     <div className="appliedJobs">
                       <h2>Applied Jobs</h2>
                       <br></br>
-                      <h4>1. {userData.position1}</h4>
+                      <h4>1. {user.position1}</h4>
                       <br></br>
-                      <h4>2. {userData.position2}</h4>
+                      <h4>2. {user.position2}</h4>
                     </div>
                     <br></br>
                     <hr></hr>
@@ -91,7 +107,7 @@ const userProfile = () => {
                         </div>
                         <div className="email">
                           <h3 className="icon-title">Email</h3>
-                          <p className="icon-desc">{userData.email}</p>
+                          <p className="icon-desc">{user.email}</p>
                         </div>
                       </div>
                       <div className="icon-flex">
@@ -100,7 +116,7 @@ const userProfile = () => {
                         </div>
                         <div className="number">
                           <h3 className="icon-title">Phone Number</h3>
-                          <p className="icon-desc">{userData.contact}</p>
+                          <p className="icon-desc">{user.contact}</p>
                         </div>
                       </div>
                     </div>
@@ -110,7 +126,7 @@ const userProfile = () => {
                 <section className="mainDetails2">
                   <h2>Executive Summary</h2>
                   <div className="summary1">
-                    <p>{userId}</p>
+                    <p>{data}</p>
                   </div>
                 </section>
                 <br></br>
@@ -145,7 +161,7 @@ const userProfile = () => {
                     <br></br>
                     <h3>Suggested Result:</h3>
                     <div className="result1">
-                      <p>{userId}</p>
+                      <p>{user.ID}</p>
                     </div>
                   </div>
                 </section>
@@ -153,14 +169,14 @@ const userProfile = () => {
                 <section className="interview">
                   <h2>Summary of Interview</h2>
                   <div className="summary2">
-                    <p>{userData.interview}</p>
+                    <p>{user.interview}</p>
                   </div>
                 </section>
                 <br></br>
                 <section className="resume">
                   <h2>Resume/ CV Summary</h2>
                   <div className="summary2">
-                    <p>{userData.summary}</p>
+                    <p>{user.summary}</p>
                     <p></p>
                   </div>
                 </section>
