@@ -186,7 +186,9 @@ const DI_Interview = () => {
             <button className="start-btn btn1" onClick={startListening}>Start Interview</button>
           </div>
           <div className="submit-div">
-            <button className="submit-btn btn1" onClick={()=> { updateQuestionsToFirestore(data,text); stopListening}}>End Interview</button>
+            <button className="submit-btn btn1" onClick={()=> { updateQuestionsToFirestore(data,text); stopListening}}>End Interview<Link to="/cdashboard" className="nav-menu-link">
+            Dashboard
+          </Link></button>
           </div>
           <div className="transcript-div">
             <button className="transcript-btn btn1"onClick={ () => {
