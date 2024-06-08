@@ -37,10 +37,10 @@ const navbar = () => {
           </Link>*/}
         </li>
         <li>
-          <HiOutlineClipboardList size={20} className="navbar-icon" /> Uploaded Resume
-          {/*<Link to="/cv-upload" className="nav-menu-link">
+          <HiOutlineClipboardList size={20} className="navbar-icon" /> 
+          <Link to="/CVUpload" className="nav-menu-link">
             Uploaded Resume
-          </Link>*/}
+          </Link>
         </li>
         <li>
           <MdSchedule size={20} className="navbar-icon" /> My Schedule
