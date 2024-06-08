@@ -1,8 +1,10 @@
 import "../CVUpload/CVUpload.css";
 import { useState, useEffect } from "react";
 import { db, storage } from "../../utils/firebase";
-import { collection, addDoc } from "firebase/firestore";
-import { FaRegImage } from "react-icons/fa6";
+import { collection, setDoc, doc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import pdfToText from 'react-pdftotext';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 import {
   ref,
@@ -20,6 +22,10 @@ function CVUpload() {
 
   const [imageUrls, setImageUrls] = useState([]);
 
+  const auth = getAuth();
+  const userId = auth.currentUser?.uid;
+ 
+  
   const imagesListRef = ref(storage, "images/");
   const uploadFile = () => {
     if (imageUpload == null) return;
@@ -58,19 +64,64 @@ function CVUpload() {
   const [newContact, setNewContact] = useState("");
   const [newPosition1, setNewPosition1] = useState("");
   const [newPosition2, setNewPosition2] = useState("");
+  const [newCV, setNewCV] = useState("");
+  const [newAdmin, setNewAdmin] = useState("");
+  const [newGrading, setNewGrading] = useState("");
+  const [newInterview, setNewInterview] = useState("");
+  const [newResult, setNewResult] = useState("");
+  const [newSummary, setNewSummary] = useState("");
 
-  const usersCollectionRef = collection(db, "Candidates");
+  const usersCollectionRef = collection(db, 'Collection');
+  const userDocRef = doc(usersCollectionRef, userId);
 
   const createUser = async () => {
-    await addDoc(usersCollectionRef, {
+    await setDoc(userDocRef, {
       name: newName,
       ID: newID,
       email: newEmail,
       contact: newContact,
       position1: newPosition1,
       position2: newPosition2,
+      CV: newCV, 
+      admin: newAdmin,
+      grading: newGrading,
+      interview: newInterview,
+      result: newResult,
+      summmary: newSummary,
     });
   };
+
+  const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+  const [loading, setLoading] = useState(false);
+
+  async function Summariser(info) {
+    try { 
+      setLoading(true);
+      const genAI = new GoogleGenerativeAI(API_KEY);
+      const model = genAI.getGenerativeModel({ 
+        model: "gemini-1.5-pro",
+        systemInstruction: "Your task is to summarize the resume of the candidate that I am about to give you. Analyze the document, and detect the name, telephone number, email, list of experience and skills. Respond strictly with the fields in a numbered list, and nothing else—no explanations, no additional text.",  });
+        
+      const result = await model.generateContent(info);
+      const text = result.response.text();
+      setLoading(false);
+      console.log("Summariser:" + text)
+      setNewSummary(text);
+      console.log("After cvvvvv:" + text);
+    } catch (error) {
+      setLoading(false);
+      console.error("Summariser error: ", error);
+    }
+  }
+
+  function extractText(event) {
+    const file = event.target.files[0]
+    pdfToText(file)
+        .then(text => {
+            Summariser(text);
+  })
+        .catch(error => console.error("Failed to extract text from pdf"))
+}
 
   return (
     <>
@@ -163,7 +214,7 @@ function CVUpload() {
                 </h2>
                 <select
                   onChange={(event) => {
-                    setNewPosition1(event.target.value);
+                    setNewPosition1(event.target.value), setNewCV(""), setNewAdmin(""), setNewGrading(""), setNewInterview(""), setNewResult(""), setNewSummary("");
                   }}
                 >
                   <option>Select an option</option>
@@ -204,6 +255,7 @@ function CVUpload() {
               type="file"
               onChange={(event) => {
                 setImageUpload2(event.target.files[0]);
+                extractText(event);
               }}
             />
           </div>
