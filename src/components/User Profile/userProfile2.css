@@ -1,0 +1,273 @@
+h1{
+    font-size: larger;
+    color: black;
+    margin-left: 22%;
+}
+
+h2{
+    font-size: 16px;
+}
+
+.mainDetails1{
+    display: flex;
+    margin-left: 5%;
+    background-color: white;
+    flex-direction: column;
+    border: 2px;
+    border-style: solid;
+    border-color: rgba(115, 115, 115, 0.205);
+    padding: 30px;
+    width: 400px;
+    height: 600px;
+}
+
+.mainDetails2{
+    display: flex;
+    margin-left: 5%;
+    background-color: white;
+    flex-direction: column;
+    border: 2px;
+    border-style: solid;
+    border-color: rgba(115, 115, 115, 0.205);
+    padding: 30px;
+    width: 400px;
+    height: 350px;
+}
+
+h3 {
+    font-size: 14px;
+    color: rgb(116, 116, 116);
+    margin-left: 5%;
+}
+
+h4 {
+    font-size: 14px;
+    color: rgb(82, 80, 80);
+    margin-left: 5%;
+}
+
+.all p {
+    font-size: 12px;
+    color: rgb(116, 116, 116);
+}
+
+.upProfile{
+    display: flex;
+   
+}
+
+.downProfile{
+    background-color: #1b479313;
+    padding: 0 20px 20px;
+}
+
+.mainDetails.hr {
+    border-color: rgb(197, 189, 189);
+}
+
+.contacts{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.icon-flex{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.icon-title {
+    margin: 0;
+    font-size: 15px;
+}
+
+.icon-desc {
+
+}
+
+.summary1{
+    padding: 25px;
+    background-color: #1b479313;
+    height: 400px;
+    overflow-y:scroll;
+}
+
+.summary2{
+    padding: 25px;
+    background-color: #1b479313;
+    height: 400px;
+    overflow-y:scroll;
+}
+
+.admin-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.mainSection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.artificialIntelligence{
+    display: flex;
+    margin-right: 5%;
+    background-color: white;
+    flex-direction: column;
+    border: 2px;
+    border-style: solid;
+    border-color: rgba(115, 115, 115, 0.205);
+    padding: 30px;
+    width: 700px;
+}
+
+textarea{
+    width: 320px;
+    border-radius: 5px;
+    padding: 25px;
+    height: 200px;
+    resize: none;
+}
+
+.admin-btn {
+    padding: 15px;
+    background-color: #304bb5;
+    width: 110px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.card1, .card2, .card3{
+    width: 30%;
+    height: 120px;
+    background-color: #1B4893;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.cardItem {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card1 h2, .card2 h2, .card3 h2{
+    color: white;
+    justify-content: space-around;
+
+}
+
+.card1 p, .card2 p, .card3 p{
+    color: white;
+    font-size: 16px;
+    justify-content: space-around;
+
+}
+
+.result {
+    display: flex;
+    flex-direction: row;
+    margin-top: 40px;
+}
+
+.result1 {
+    padding: 20px;
+    background-color: #1b479313;
+    margin-left: 40px;
+    width: 50%;
+    text-align: center;
+}
+
+.interview{
+    display: flex;
+    margin-right: 5%;
+    background-color: white;
+    flex-direction: column;
+    border: 2px;
+    border-style: solid;
+    border-color: rgba(115, 115, 115, 0.205);
+    padding: 30px;
+    width: 700px;
+    height: 500px;
+}
+
+.resume {
+    display: flex;
+    margin-right: 5%;
+    background-color: white;
+    flex-direction: column;
+    border: 2px;
+    border-style: solid;
+    border-color: rgba(115, 115, 115, 0.205);
+    padding: 30px;
+    width: 700px;
+    height: 459px;
+}
+
+.all {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.button1 {
+    padding: 20px;
+    background-color: #16c60a;
+    width: 130px;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+}
+
+.button2 {
+    padding: 20px;
+    background-color: #f1cf0c;
+    width: 130px;
+    border-radius: 5px;
+}
+
+.button3 {
+    padding: 20px;
+    background-color: #f01b1b;
+    width: 130px;
+    border-radius: 5px;
+}
+
+button {
+    border: none;
+    background-color: #1b479300;
+    color: rgb(243, 243, 243);
+    font-size: larger;
+}
+
+.btn {
+    text-align: center;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+
+}
+
+
+
+
+
+
