@@ -17,43 +17,43 @@ const Dashboard = () => {
     <div className="page-contents">
       <Navbartop />
 
-      <div className="greeting">
-        <p className="greeting-title">Good Afternoon!</p>
-        <p className="greeting-desc">
+      <div className="ad-greeting">
+        <p className="ad-greeting-title">Good Afternoon!</p>
+        <p className="ad-greeting-desc">
           Here are the job listings statistics report as of{" "}
           {date.toDateString()}.
         </p>
       </div>
       <main>
-        <section className="section-btn-actions">
-          <div className="btn-actions">
-            <p className="btn-actions-number">76</p>
-            <p className="btn-actions-desc">New candidates to review</p>
+        <section className="ad-section-btn-actions">
+          <div className="ad-btn-actions">
+            <p className="ad-btn-actions-number">76</p>
+            <p className="ad-btn-actions-desc">New candidates to review</p>
             <FaArrowRight size={20} className="btn-actions-icon" />
           </div>
-          <div className="btn-actions">
-            <p className="btn-actions-number">3</p>
-            <p className="btn-actions-desc">Scheduled for today</p>
+          <div className="ad-btn-actions">
+            <p className="ad-btn-actions-number">3</p>
+            <p className="ad-btn-actions-desc">Scheduled for today</p>
             <FaArrowRight size={20} className="btn-actions-icon" />
           </div>
-          <div className="btn-actions">
-            <p className="btn-actions-number">24</p>
-            <p className="btn-actions-desc">Messages received</p>
+          <div className="ad-btn-actions">
+            <p className="ad-btn-actions-number">24</p>
+            <p className="ad-btn-actions-desc">Messages received</p>
             <FaArrowRight size={20} className="btn-actions-icon" />
           </div>
         </section>
 
-        <section className="section-job-statistics">
-          <div className="card-job-stats">
-            <div className="card-jobs-stats-header">
+        <section className="ad-section-job-statistics">
+          <div className="ad-card-job-stats">
+            <div className="ad-card-jobs-stats-header">
              
-              <div className="card-jobs-stats-header-tabs">
+              <div className="ad-card-jobs-stats-header-tabs">
               
               </div>
             </div>
 
-            <div className="card-jobs-stats-content">
-              <div className="card-stats-overview">
+            <div className="ad-card-jobs-stats-content">
+              <div className="ad-card-stats-overview">
             
               </div>
 
@@ -61,11 +61,11 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className="card-right-content">
-            <div className="card-jobs-open">
+          <div className="ad-card-right-content">
+            <div className="ad-card-jobs-open">
               <JobOpening />
             </div>
-            <div className="card-applicant-summary">
+            <div className="ad-card-applicant-summary">
               <ApplicantSummary />
             </div>
           </div>

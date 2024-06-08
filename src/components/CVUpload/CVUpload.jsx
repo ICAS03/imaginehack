@@ -153,7 +153,8 @@ function CVUpload() {
       <h1>Job Application Submission</h1>
       <br></br>
       <div className="fullContent">
-        <div className="title">
+        
+        <div className="cv-title">
           <div className="flex candidate-section">
             <h2>Candidate Profile Picture</h2>
             <h3>This image will be displayed on your public profile.</h3>
