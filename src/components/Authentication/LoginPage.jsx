@@ -30,6 +30,7 @@ const LoginPage = () => {
   return (
     <div className="login-container">
             <div className='left-section'>
+                
             </div>
             <div className='right-section'>
                 <div className='button_container'>
