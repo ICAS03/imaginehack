@@ -1,0 +1,134 @@
+.greeting {
+    padding: 32px;
+    margin-left: 20%;
+}
+
+.title {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 0;
+    margin-bottom: 8px;
+    color: #25324B;
+}
+
+.desc {
+    margin: 0;
+    color: #7C8493;
+}
+
+.job {
+    display: flex;
+    height: 200px;
+    margin-top: -40px;
+    margin-left: 20%;
+}
+
+.job-card-div{
+    background-color: #1b47933e;
+    width: 300px;
+    height: 100px;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    margin: auto;
+}
+
+.job-title{
+    font-size: 20px;
+}
+
+.job-stats{
+    font-size: 40px;
+}
+
+.recent-applications-history{
+    width: 75%;
+    margin: auto;
+    margin-top: -30px;
+    padding: 20px;
+    border: 1px #1b47933e solid;
+    margin-left: 22%;
+}
+
+.recent-applications-history-card1{
+    background-color: #1b47933e;
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+}
+
+.recent-applications-history-card2{
+    background-color: #dbdbdb;
+    width: 100%;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+}
+
+.application-icon{
+    width: 30px;
+}
+
+.position-title{
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 400px;
+}
+
+.date-applied{
+    margin: auto;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+
+.status-btn-ir{
+    margin: auto;
+    margin-right: 157px;
+    padding: 5px;
+    background-color: transparent;
+    color: rgb(255, 157, 0);
+    border: 2px rgb(255, 157, 0) solid;
+    border-radius: 100px;
+}
+
+.status-btn-s{
+    margin: auto;
+    margin-right: 150px;
+    padding: 5px;
+    background-color: transparent;
+    color: rgb(10, 0, 190);
+    border: 2px rgb(10, 0, 190) solid;
+    border-radius: 100px;
+}
+
+.status-btn-d{
+    margin: auto;
+    margin-right: 157px;
+    padding: 5px;
+    background-color: transparent;
+    color: rgb(198, 2, 2);
+    border: 2px rgb(198, 2, 2) solid;
+    border-radius: 100px;
+}
+
+.recent-applications-history-title{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 120%;
+    margin: 0;
+    margin-bottom: 30px;
+    margin-left: 8px;
+    color: #25324B;
+}
+
+.job-icon{
+    width: 50px;
+    text-align: right;
+}
+
+.job-card-span{
+    
+}
