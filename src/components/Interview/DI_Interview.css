@@ -93,13 +93,45 @@
     font-weight: 500;
     background-color: #925bff2c;
     border-width: 0;
+    cursor: pointer;
+}
+
+.transcript-btn{
+    margin-right: 15%;
+    padding: 10px 30px;
+    color: #1B4893;
+    font-weight: 500;
+    background-color: #925bff2c;
+    border-width: 0;
+    cursor: pointer;
 }
   
 .btn1 {
     box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    
 }
 
 .submit-div{
     text-align: right;
     margin: auto;
+}
+
+.start-btn{
+    margin-right: 15%;
+    padding: 10px 30px;
+    color: #1B4893;
+    font-weight: 500;
+    background-color: #925bff2c;
+    border-width: 0;
+    cursor: pointer;
+}
+  
+.start-div{
+    text-align: right;
+    margin: auto;
+}
+
+.buttons {
+    margin : auto;
+    display: flex;
 }
