@@ -1,7 +1,10 @@
 import React from "react";
 import "/src/components/Interview/DI_Main.css";
+import { Link, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const DI_Main = () => {
+  const navigate = useNavigate();
   return (
     <>
       <main className="mainClass">
@@ -79,25 +82,8 @@ const DI_Main = () => {
           </div>
         </section>
         <hr className="hline"></hr>
-        <button className="interview-button">Start Digital Interview</button>
+        <button className="interview-button" onClick={() => navigate("/interview")}>Start Digital Interview</button> 
         <section className="section-btn-actions">
-          <div className="text-display-div">
-            <p className="text-display">Text Display</p>
-          </div>
-        </section>
-
-        <section className="section-job-statistics">
-          <div className="btn-section"></div>
-        </section>
-        <section>
-          <div className="timer-div">
-            <p className="timer-text">Time remaining for question : </p>
-          </div>
-        </section>
-        <section>
-          <div className="timer-div">
-            <p className="timer-text">Text: </p>
-          </div>
         </section>
       </main>
     </>
