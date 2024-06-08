@@ -1,0 +1,224 @@
+.login-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.left-section {
+    position: relative;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    position: absolute;
+    top: 5%;
+    left: 35%;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+}
+
+
+.cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.right-section {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+/*.brand {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    color: #060606;
+    font-weight: bold;
+    margin-right: auto;
+}*/
+
+.hilti-logo{
+    height: 4rem;
+}
+
+.button-container {
+  display: flex; 
+}
+
+.button {
+  background-color: #1B4893;
+  border: 1px solid #dddddd;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 10px 20px;
+  margin-right: 10px;
+  margin-top: 50px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.button:hover {
+  color: #1B4893; 
+  background-color: #ffffff;
+
+}
+
+.form-container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+}
+
+.form-header {
+    margin-bottom: 20px;
+}
+
+.form-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.form-subtitle {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    text-align: left;
+    color:#1B4893;
+}
+
+.input-container {
+    margin-bottom: 20px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid #000000;
+    outline: none;
+}
+
+.remember-forgot-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox {
+    margin-right: 10px;
+}
+
+.remember-text {
+    font-size: 0.875rem;
+}
+
+.forgot-password {
+    font-size: 0.875rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #1B4893;
+}
+
+.button-container {
+    margin-bottom: 20px;
+}
+
+.login-button,
+.register-button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-button {
+    background-color: #1B4893;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.register-button {
+    background-color: #ffffff;
+    border: 0.1px solid #000000;
+    color: #1B4893;
+    font-weight: bold;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative; /* Add this to .separator */
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+    flex-grow: 1; /* Update flex-grow to 1 */
+}
+
+.or {
+    font-size: 1rem;
+    position: absolute; /* Position the 'or' text absolutely */
+    top: 50%;
+    left: 50%; /* Position it in the middle */
+    transform: translate(-30%, -140%); /* Center it precisely */
+}
+
+.google-signin {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #c9c9c9;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #060606;
+    font-weight: bold;
+}
+
+.google-icon {
+    height: 1.5rem;
+    margin-right: 10px;
+}
+
+.signup-section {
+    display: flex;
+    justify-content: center;
+}
+
+.signup-text {
+    font-size: 0.875rem;
+    font-weight: normal;
+    color: #060606;
+}
+
+.signup-link {
+    font-weight: bold;
+    text-decoration: underline;
+    margin-left: 3px;
+    cursor: pointer;
+    color: #1B4893;
+}

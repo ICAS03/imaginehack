@@ -1,12 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-//import App from "./App.jsx";
-import "./index.css";
-import DI_Main from "./components/Interview/DI_Main.jsx";
-import DI_Interview from "./components/Interview/DI_Interview.jsx";
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App.jsx'
+import './index.css'
+import LoginPage from './components/Authentication/LoginPage.jsx'
+import Dashboard from './components/Dashboard/Dashboard.jsx'
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <App></App>
   </React.StrictMode>
 );
+);
+

@@ -1,0 +1,149 @@
+.page-contents{
+    margin-left: 20%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.greeting {
+    padding: 32px;
+}
+
+.greeting-title {
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 0;
+    margin-bottom: 8px;
+    color: #25324B;
+}
+
+.greeting-desc {
+    margin: 0;
+    color: #7C8493;
+}
+
+.section-btn-actions {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 25px;
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+.btn-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 0;
+    padding: 24px;
+    background-color: #1B4893;
+    color: white;
+    width: 33%;
+    height: 80px;
+
+}
+
+.btn-actions-number {
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.btn-actions-desc {
+    width: 200px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+}
+
+.btn-actions-icon {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.section-job-statistics {
+    margin-left: 32px;
+    margin-right: 32px;
+    display: flex;
+    gap: 24px;
+    width: 100;
+}
+
+.card-job-stats{
+    border: 1px solid lightgrey;
+    width: 66%;
+}
+
+.card-jobs-stats-header {
+    display: flex;
+    justify-content: center;
+    padding-top: 24px;
+    flex-direction: column;
+    padding-left: 24px;
+    border-bottom: 1px solid lightgrey;
+    margin-bottom: 40px;
+}
+
+.card-jobs-stats-header-title {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 120%;
+    margin: 0;
+    margin-bottom: 4px;
+    color: #25324B;
+}
+
+.card-jobs-stats-header-desc {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 160%;
+    margin: 0;
+    color: #7C8493;
+}
+
+.card-tabs {
+    display: flex;
+    width: 727px;
+    align-items: flex-start;
+    gap: 40px;
+    margin-top: 16px;
+    margin-bottom: 0;
+    padding: 0;
+}
+
+.card-tabs li {
+    list-style-type: none;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 160%;
+    padding-bottom: 7px;
+}
+
+.card-jobs-stats-content {
+    display: flex;
+}
+
+.card-right-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;  
+    width: 33%;
+}
+
+.section-job-updates {
+    width: 100%;
+    margin-left: 32px;
+    margin-right: 32px;
+}
