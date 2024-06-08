@@ -12,6 +12,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@esbuild/win32-x64": "^0.21.4",
     "@google/generative-ai": "^0.12.0",
     "@mui/material": "^5.15.19",
     "firebase": "^10.12.2",
@@ -23,6 +24,7 @@
     "react-table": "^7.8.0",
     "react-timer-hook": "^3.0.7",
     "react-webcam": "^7.2.0",
+    "rollup": "^4.18.0",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
