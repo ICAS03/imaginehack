@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../Navbar/navbar';
 import Navbartop from '../Navbar/navbartop';
-import { FaArrowRight } from "react-icons/fa";
-
 import { db } from '../../utils/firebase';
+
+import '../UserDatas/UserDataTable.css';
 
 import UserDataTable from './UserDataTable.jsx'
 import { getFirestore, doc, onSnapshot, collection } from 'firebase/firestore';
@@ -26,7 +26,11 @@ function UserData() {
     }
     console.log(userData);
     return (
+        <>
+        <Navbar/>
+        <Navbartop />
         <UserDataTable userData={userData} />
+      </>
       );
 } 
 

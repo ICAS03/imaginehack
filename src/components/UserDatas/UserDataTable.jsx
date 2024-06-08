@@ -1,42 +1,44 @@
-import React from 'react'
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
+import React from 'react';
+import {
+    Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button
+} from '@mui/material';
+import '../UserDatas/UserDataTable.css';
 
-
-const UserDataTable = ({userData}) => (
-    <TableContainer>
-        <Table>
-            <TableHead>
-                <TableRow>
-                    <TableCell>name</TableCell>
-                    <TableCell>contact</TableCell>
-                    <TableCell>email</TableCell>
-                    <TableCell>grading</TableCell>
-                    <TableCell>position1</TableCell>
-                    <TableCell>position2</TableCell>
-                    <TableCell>summary</TableCell>
-                    <TableCell>View More</TableCell>
-                </TableRow>
-            </TableHead>
-            <TableBody>
+const UserDataTable = ({ userData }) => (
+    <div className="table-container">
+        <table className="table">
+            <thead className="table-head">
+                <tr className="table-row">
+                    <th className="table-head-cell">Name</th>
+                    <th className="table-head-cell">Contact</th>
+                    <th className="table-head-cell">Email</th>
+                    <th className="table-head-cell">Grading</th>
+                    <th className="table-head-cell">Position 1</th>
+                    <th className="table-head-cell">Position 2</th>
+                    <th className="table-head-cell">Summary</th>
+                    <th className="table-head-cell">View More</th>
+                </tr>
+            </thead>
+            <tbody>
                 {userData?.map((user) => (
-                    <TableRow key={user.ID}> 
-                        <TableCell>{user.name}</TableCell>
-                        <TableCell>{user.contact}</TableCell>
-                        <TableCell>{user.email}</TableCell>
-                        <TableCell>{user.grading}</TableCell>
-                        <TableCell>{user.position1}</TableCell>
-                        <TableCell>{user.position2}</TableCell>
-                        <TableCell>{user.summmary}</TableCell>
-                        <TableCell><button>hi</button></TableCell>
-                    </TableRow> 
+                    <tr key={user.ID} className="table-row">
+                        <td className="table-cell">{user.name}</td>
+                        <td className="table-cell">{user.contact}</td>
+                        <td className="table-cell">{user.email}</td>
+                        <td className={`table-cell grading ${user.grading.replace(' ', '-').toLowerCase()}`}>
+                            {user.grading}
+                        </td>
+                        <td className="table-cell">{user.position1}</td>
+                        <td className="table-cell">{user.position2}</td>
+                        <td className="table-cell">{user.summary}</td>
+                        <td className="table-cell">
+                            <button className="view-more-button">Review</button>
+                        </td>
+                    </tr>
                 ))}
-            </TableBody>
-        </Table>
-    </TableContainer>
+            </tbody>
+        </table>
+    </div>
 );
+
 export default UserDataTable;
