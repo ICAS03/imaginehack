@@ -7,6 +7,7 @@ import { AiOutlineEye } from "react-icons/ai";
 import { HiOutlineClipboardList } from "react-icons/hi";
 import { JobOpening , ApplicantSummary } from './ApplicationSummary.jsx';
 import JobUpdates from './JobUpdates.jsx';
+
 import '../Dashboard/Dashboard.css';
 
 const Dashboard = () => {

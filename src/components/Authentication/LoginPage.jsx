@@ -24,6 +24,7 @@ const LoginPage = () => {
             const errorMessage = error.message;
             console.log(errorCode, errorMessage)
         });
+        
     }
 
   return (
