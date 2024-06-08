@@ -3,8 +3,16 @@ import {
     Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Button
 } from '@mui/material';
 import '../UserDatas/UserDataTable.css';
+import { useNavigate } from 'react-router';
 
-const UserDataTable = ({ userData }) => (
+
+
+const UserDataTable = ({ userData }) => {
+    const navigate = useNavigate();
+const handleReviewClick = (user) => {
+    navigate('/testing', { state: { user } });
+};
+    return (
     <div className="table-container">
         <table className="table">
             <thead className="table-head">
@@ -32,13 +40,15 @@ const UserDataTable = ({ userData }) => (
                         <td className="table-cell">{user.position2}</td>
                         <td className="table-cell">{user.summary}</td>
                         <td className="table-cell">
-                            <button className="view-more-button">Review</button>
+                            <button className="view-more-button" onClick={() => handleReviewClick(user)}>Review</button>
                         </td>
                     </tr>
                 ))}
             </tbody>
         </table>
     </div>
-);
+    )
+    
+            };
 
 export default UserDataTable;
