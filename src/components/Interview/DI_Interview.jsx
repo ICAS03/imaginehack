@@ -4,6 +4,13 @@ import { useEffect , useState } from 'react'
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { useTimer } from 'react-timer-hook';
 import Webcam from "react-webcam";
+import { getAuth } from "firebase/auth";
+import { getFirestore, doc, updateDoc, arrayUnion } from "firebase/firestore";
+
+// Initialize Firestore
+const firestore = getFirestore();
+const auth = getAuth();
+const userId = auth.currentUser?.uid;
 
 const DI_Interview = () => {
   const [text , setText] = useState("");
@@ -11,7 +18,7 @@ const DI_Interview = () => {
   //Generate from text//
   const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
   const genAI = new GoogleGenerativeAI(API_KEY);
-  const [data, setData] = useState(undefined);
+  const [data, setData] = useState("");
   const [loading, setLoading] = useState(false);
 
   const recognitionRef = useRef(null);
@@ -45,6 +52,7 @@ const DI_Interview = () => {
     }
   };
 
+
     const time = new Date();
     time.setSeconds(time.getSeconds() + 90);
 
@@ -53,15 +61,12 @@ const DI_Interview = () => {
       minutes,
       isRunning,
       start,
+      pause,
     } = useTimer({
       expiryTimestamp: time,
       autoStart: false,  // Do not start automatically
-      onExpire: () => console.warn("onExpire called"),
+      onExpire: () => console.warn("Time Has Ended"),
     });
-  
-    const clear = () => {
-      setText('');
-    };
   
     const handleSpeechResult = (event) => {
       const results = event.results;
@@ -97,7 +102,6 @@ const DI_Interview = () => {
         const chatSession = model.startChat({
           generationConfig,
         });
-        
         setLoading(true);
   
         const result = await chatSession.sendMessage(text);
@@ -109,7 +113,30 @@ const DI_Interview = () => {
         setLoading(false);
         console.error("fetchDataFromGeminiAPI error: ", error);
       }
-      stopListening();
+    }
+
+    async function updateQuestionsToFirestore(question, response) {
+      pause();
+      const user = auth.currentUser;
+      if (!user) {
+        console.error("No authenticated user found!");
+        return;
+      }
+    
+      const userDoc = doc(firestore, "Collection", user.uid);
+      try {
+        await updateDoc(userDoc, {
+          questions: arrayUnion({
+            question: question,
+            response: response
+          })
+        });
+        console.log(question);
+        console.log(response);
+        console.log("Question updated successfully");
+      } catch (error) {
+        console.error("Error updating question: ", error);
+      }
     }
 
   return (
@@ -151,7 +178,6 @@ const DI_Interview = () => {
         <section>
           <div className="timer-div">
             <p className="timer-text">Time remaining for question : {minutes}:{seconds} </p>
-          
           </div>
         </section>
         <section className="buttons">
@@ -159,11 +185,14 @@ const DI_Interview = () => {
             <button className="start-btn btn1" onClick={startListening}>Start Interview</button>
           </div>
           <div className="submit-div">
-            <button className="submit-btn btn1">End Interview</button>
+            <button className="submit-btn btn1" onClick={()=> { updateQuestionsToFirestore(data,text); stopListening}}>End Interview</button>
           </div>
           <div className="transcript-div">
-            <button className="submit-btn btn1"onClick={generateQuestions}>Next Question</button>
-          </div>
+            <button className="transcript-btn btn1"onClick={ () => {
+              generateQuestions();
+              updateQuestionsToFirestore(data, text)}
+            }>Next Question</button>
+          </div> 
         </section>
       </main> 
     </>
