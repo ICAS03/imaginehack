@@ -19,8 +19,8 @@ const navbar = () => {
       
       <ul className="nav-menu">
         <li>
-          <BiHomeAlt2 size={35} className="navbar-icon" /> 
-          <Link to="/dashboard" className="nav-menu-link">
+          <BiHomeAlt2 size={20} className="navbar-icon" /> 
+          <Link to="/cdashboard" className="nav-menu-link">
             Dashboard
           </Link>
         </li>
