@@ -156,7 +156,7 @@ function CVUpload() {
         <div className="cv-title">
           <div className="flex candidate-section">
             <h2>Candidate Profile Picture</h2>
-            <h3>This image will be displayed on your public profile.</h3>
+            <h3 className="cand-desc">This image will be displayed on your public profile.</h3>
           </div>
           <div className="div-upload">
             <input
@@ -174,7 +174,7 @@ function CVUpload() {
         <div className="title2">
           <div className="applicant">
             <h2>Applicant Details</h2>
-            <h3>Introduce yourself by filling up your basic information.</h3>
+            <h3 className="cand-desc">Introduce yourself by filling up your basic information.</h3>
           </div>
           <div className="form">
             <h2>
@@ -272,7 +272,7 @@ function CVUpload() {
         <div className="title3">
           <div className="flex">
             <h2>Resume Submission</h2>
-            <h3>Kindly upload your latest resume here.</h3>
+            <h3 className="cand-desc">Kindly upload your latest resume here.</h3>
           </div>
           <div className="div-upload">
             <input
