@@ -23,6 +23,7 @@ const DI_Interview = () => {
 
   const recognitionRef = useRef(null);
 
+
   useEffect(() => {
     if (!("webkitSpeechRecognition" in window)) {
       console.log("Speech recognition not supported by this browser.");
