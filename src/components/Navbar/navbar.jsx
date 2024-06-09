@@ -19,37 +19,37 @@ const navbar = () => {
       
       <ul className="nav-menu">
         <li>
-          <BiHomeAlt2 size={20} className="navbar-icon" /> 
+          <BiHomeAlt2 size={35} className="navbar-icon" /> 
           <Link to="/cdashboard" className="nav-menu-link">
             Dashboard
           </Link>
         </li>
         <li>
-          <BiMessageAltDetail size={20} className="navbar-icon" />Messages
+          <BiMessageAltDetail size={35} className="navbar-icon" />Messages
           {/*<Link to="/dashboard" className="nav-menu-link">
             Messages
           </Link>*/}
         </li>
         <li>
-          <IoPeopleOutline size={20} className="navbar-icon" />Applicants
+          <IoPeopleOutline size={35} className="navbar-icon" />Applicants
           {/*<Link to="/all-applicants" className="nav-menu-link">
             Applicants
           </Link>*/}
         </li>
         <li>
-          <HiOutlineClipboardList size={20} className="navbar-icon" /> 
+          <HiOutlineClipboardList size={35} className="navbar-icon" /> 
           <Link to="/CVUpload" className="nav-menu-link">
             Uploaded Resume
           </Link>
         </li>
         <li>
-          <MdSchedule size={20} className="navbar-icon" /> My Schedule
+          <MdSchedule size={35} className="navbar-icon" /> My Schedule
           {/*<Link to="/dashboard" className="nav-menu-link">
             My Schedule
           </Link>*/}
         </li>
         <li>
-          <BiSearch size={20} className="navbar-icon" /> 
+          <BiSearch size={35} className="navbar-icon" /> 
           <Link to="/start-interview" className="nav-menu-link">
             Digital Interview
           </Link>
@@ -66,11 +66,11 @@ const navbar = () => {
         <p className="navbar-settings-title">SETTINGS</p>
         <ul className="nav-menu">
           <li>
-            <FiSettings size={20} className="navbar-icon" />
+            <FiSettings size={35} className="navbar-icon" />
             Settings
           </li>
           <li>
-            <BiHelpCircle size={20} className="navbar-icon" />
+            <BiHelpCircle size={35} className="navbar-icon" />
             Help Center
           </li>
         </ul>

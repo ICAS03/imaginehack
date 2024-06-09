@@ -8,11 +8,10 @@ const c_dashboard = () => {
     <>
       <main className="mainClass">
         <Navbar />
-        <Navbartop />
         <div className="greeting">
-          <p className="title">Good morning, Jake</p>
+          <p className="title">Good Morning, Jake</p>
           <p className="desc">
-            Here's what's happening with your job search applications
+            Here's what's happening with your job search applications:
           </p>
         </div>
         <section className="job">

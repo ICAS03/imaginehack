@@ -1,3 +1,4 @@
+import COVER_IMAGE from "../../assets/company2.jpg";
 import React from 'react'
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from '../../utils/firebase';
@@ -26,8 +27,13 @@ const RegisterPage = () => {
   return (
     <div className="login-container">
             <div className='left-section'>
-                
-            </div>
+                <div className="content">
+                <h1 className="content-title">TALENTSPROUT</h1>
+                <p className="subtitle">
+                A One Stop Talent Acquisition Solution.
+          </p>
+        </div>
+        <img src={COVER_IMAGE} className="cover-image" /></div>
             <div className='right-section'>
                 
                 <div className='button_container'>
