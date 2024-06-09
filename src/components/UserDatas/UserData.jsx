@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '../Navbar/navbar';
 import Navbartop from '../Navbar/navbartop';
 import { db } from '../../utils/firebase';
-
+import Admin_Navbar from '../Navbar/admin_navbar.jsx';
 import '../UserDatas/UserDataTable.css';
 
 import UserDataTable from './UserDataTable.jsx'
@@ -27,7 +27,7 @@ function UserData() {
     console.log(userData);
     return (
         <>
-        <Navbar/>
+        <Admin_Navbar></Admin_Navbar>
         <Navbartop />
         <UserDataTable userData={userData} />
       </>
