@@ -6,6 +6,7 @@ import { useTimer } from 'react-timer-hook';
 import Webcam from "react-webcam";
 import { getAuth } from "firebase/auth";
 import { getFirestore, doc, updateDoc, arrayUnion } from "firebase/firestore";
+import { Link, useNavigate } from "react-router-dom";
 
 // Initialize Firestore
 const firestore = getFirestore();
@@ -20,7 +21,7 @@ const DI_Interview = () => {
   const genAI = new GoogleGenerativeAI(API_KEY);
   const [data, setData] = useState("");
   const [loading, setLoading] = useState(false);
-
+  const navigate = useNavigate();
   const recognitionRef = useRef(null);
 
 
@@ -53,9 +54,8 @@ const DI_Interview = () => {
     }
   };
 
-
     const time = new Date();
-    time.setSeconds(time.getSeconds() + 90);
+    time.setSeconds(time.getSeconds() + 150);
 
     const {
       seconds,
@@ -127,10 +127,7 @@ const DI_Interview = () => {
       const userDoc = doc(firestore, "Collection", user.uid);
       try {
         await updateDoc(userDoc, {
-          questions: arrayUnion({
-            question: question,
-            response: response
-          })
+         interview : response
         });
         console.log(question);
         console.log(response);
@@ -186,9 +183,7 @@ const DI_Interview = () => {
             <button className="start-btn btn1" onClick={startListening}>Start Interview</button>
           </div>
           <div className="submit-div">
-            <button className="submit-btn btn1" onClick={()=> { updateQuestionsToFirestore(data,text); stopListening}}>End Interview<Link to="/cdashboard" className="nav-menu-link">
-            Dashboard
-          </Link></button>
+            <button className="submit-btn btn1" onClick={()=> { updateQuestionsToFirestore(data,text); stopListening(); navigate("/cdashboard")}}>End Interview</button>
           </div>
           <div className="transcript-div">
             <button className="transcript-btn btn1"onClick={ () => {

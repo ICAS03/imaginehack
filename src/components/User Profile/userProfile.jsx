@@ -1,16 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { auth } from "../../utils/firebase";
 import { db } from "../../utils/firebase";
-import {
-  getFirestore,
-  doc,
-  collection,
-  onSnapshot,
-  query,
-  orderBy,
-  getDocs,
-  getDoc,
-} from "firebase/firestore";
+import {setDoc, doc , updateDoc} from "firebase/firestore";
 import "./userProfile2.css";
 import Navbar from "../Navbar/navbar";
 import Navbartop from "../Navbar/navbartop";
@@ -24,11 +15,16 @@ const userProfile = () => {
   const [data, setData] = useState("");
   const [data2, setData2] = useState("");
   const [text, setText] = useState("");
+  const [newAdmin, setNewAdmin] = useState("");
+  let status = "";
+
   //const userId = auth.currentUser?.uid;
   const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
   const genAI = new GoogleGenerativeAI(API_KEY);
   const location = useLocation();
   const { user } = location.state;
+  //const docRef = doc(db, "Collection", user);
+
 
   const generationConfig = {
     temperature: 0.5,
@@ -93,7 +89,6 @@ const userProfile = () => {
                       <h3>{user.ID}</h3>
                     </div>
                   </div>
-                  <hr></hr>
                   <div className="downProfile">
                     <div className="appliedJobs">
                       <h2>Applied Jobs</h2>
@@ -139,8 +134,10 @@ const userProfile = () => {
                 <section className="mainDetails2">
                   <h2>Admin Feedback</h2>
                   <div className="admin-summary">
-                    <textarea className="admin-textbox"></textarea>
-                    <button className="admin-btn">Submit</button>
+                    <textarea className="admin-textbox" onChange={(event) => {
+                setNewAdmin(event.target.value);
+              }}></textarea>
+                    <button className="admin-btn" onClick={() => { setDoc(docRef, newAdmin), alert("Feedback Submitted!") }}>Submit</button>
                   </div>
                 </section>
               </div>
@@ -192,13 +189,13 @@ const userProfile = () => {
             <br></br>
             <div className="buttons">
               <div className="button1">
-                <button className="btn">PASS</button>
+                <button className="btn" onClick={() => { status="PASS", setDoc(docRef, status) }}>PASS</button>
               </div>
               <div className="button2">
-                <button className="btn">KIV</button>
+                <button className="btn" onClick={() => { status="KIV", setDoc(docRef, status) }}>KIV</button>
               </div>
               <div className="button3">
-                <button className="btn">REJECT</button>
+                <button className="btn" onClick={() => { status="REJECT", setDoc(docRef, status) }}>REJECT</button>
               </div>
             </div>
           </div>
