@@ -17,7 +17,11 @@ const LoginPage = () => {
         signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
             // Signed in
             const user = userCredential.user;
-            navigate("/cdashboard");
+            if (email === 'admin@gmail.com') {
+                navigate("/dashboard");
+            } else {
+                navigate("/cdashboard");
+            }
             console.log(user);
         })
         .catch((error) => {

@@ -14,15 +14,17 @@ import {
 } from "firebase/storage";
 import { v4 } from "uuid";
 import Navbar from "../Navbar/navbar";
+import { useNavigate } from "react-router";
 
 function CVUpload() {
   const [imageUpload, setImageUpload] = useState(null);
   const [pdfUpload, setImageUpload2] = useState(null);
-
   const [imageUrls, setImageUrls] = useState([]);
-
+  const navigate = useNavigate();
+  //Auth
   const auth = getAuth();
   const userId = auth.currentUser?.uid;
+  
  
   
   const imagesListRef = ref(storage, "images/");
@@ -276,6 +278,7 @@ function CVUpload() {
           <button
             name="submit"
             onClick={() => {
+              navigate("/start-interview")
               Summariser(test);
              // createUser();
               uploadFile();

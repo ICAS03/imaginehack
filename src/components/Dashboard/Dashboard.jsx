@@ -1,19 +1,16 @@
 import React from 'react'
-import Navbar from '../Navbar/navbar';
 import Navbartop from '../Navbar/navbartop';
 import { FaArrowRight } from "react-icons/fa";
-import JobStatsCard from './JobStatsCard.jsx';
-import { AiOutlineEye } from "react-icons/ai";
-import { HiOutlineClipboardList } from "react-icons/hi";
 import { JobOpening , ApplicantSummary } from './ApplicationSummary.jsx';
-import JobUpdates from './JobUpdates.jsx';
 import '../Dashboard/Dashboard.css';
+import Admin_Navbar from '../Navbar/admin_navbar.jsx';
+import { margin } from '../../../node_modules/@mui/system/esm/spacing';
 
 const Dashboard = () => {
     const date = new Date();
   return (
     <>
-    <Navbar/>
+    <Admin_Navbar></Admin_Navbar>
     <div className="page-contents">
       <Navbartop />
 
@@ -45,22 +42,58 @@ const Dashboard = () => {
 
         <section className="ad-section-job-statistics">
           <div className="ad-card-job-stats">
-            <div className="ad-card-jobs-stats-header">
-             
-              <div className="ad-card-jobs-stats-header-tabs">
+          <table className="table">
+        <thead className="table-head">
+          <tr className="table-row">
+            <th className="table-head-cell">Name</th>
+            <th className="table-head-cell">Contact</th>
+            <th className="table-head-cell">Email</th>
+            <th className="table-head-cell">Position 1</th>
+            <th className="table-head-cell">Position 2</th>
+            <th className="table-head-cell">View More</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr className="table-row">
+              <td className="table-cell">John Doe</td>
+              <td className="table-cell">+60125874521</td>
+              <td className="table-cell">johndoe@gmail.com</td>
+              <td className="table-cell">Software Engineer</td>
+              <td className="table-cell">UX Engineer</td>
+              <td className="table-cell">
+                <button
+                  className="view-more-button"
+                >
+                  Review
+                </button>
+              </td>
+            </tr>
+            <tr className="table-row">
+              <td className="table-cell">MAry Jona</td>
+              <td className="table-cell">+60128556521</td>
+              <td className="table-cell">maruha@gmail.com</td>
+              <td className="table-cell">Graphic Desinging</td>
+              <td className="table-cell">Marketing Manager</td>
+              <td className="table-cell">
+                <button
+                  className="view-more-button"
+                >
+                  Review
+                </button>
+              </td>
+            </tr>
+        </tbody>
+      </table>
+      <div className="ad-card-jobs-stats-content">
+        
+              <div className="ad-card-stats-overview">
+              <div className="table-container-auto" >
+     
+    </div>
               
               </div>
             </div>
-
-            <div className="ad-card-jobs-stats-content">
-              <div className="ad-card-stats-overview">
-            
-              </div>
-
-             
-            </div>
           </div>
-
           <div className="ad-card-right-content">
             <div className="ad-card-jobs-open">
               <JobOpening />
