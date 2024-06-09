@@ -70,26 +70,11 @@ function CVUpload() {
   const [newResult, setNewResult] = useState("");
   const [newSummary, setNewSummary] = useState("");
   const [test , setTest] = useState("");
+  const [newUserId , setId] = useState("");
 
   const usersCollectionRef = collection(db, 'Collection');
   const userDocRef = doc(usersCollectionRef, userId);
 
-  /*const createUser = async () => {
-    await setDoc(userDocRef, {
-      name: newName,
-      ID: newID,
-      email: newEmail,
-      contact: newContact,
-      position1: newPosition1,
-      position2: newPosition2,
-      CV: newCV, 
-      admin: newAdmin,
-      grading: newGrading,
-      interview: newInterview,
-      result: newResult,
-      summmary: newSummary,
-    });
-  };*/
 
   function extractText(event) {
     const file = event.target.files[0]
@@ -137,6 +122,7 @@ function CVUpload() {
             interview: newInterview,
             result: newResult,
             summary: final_text, // Change newSummary to final_text
+            userId: newUserId,
         });
 
       console.log("After cvvvvv:" + final_text);
@@ -237,7 +223,7 @@ function CVUpload() {
                 </h2>
                 <select
                   onChange={(event) => {
-                    setNewPosition1(event.target.value), setNewCV(""), setNewAdmin(""), setNewGrading(""), setNewInterview(""), setNewResult(""), setNewSummary("");
+                    setNewPosition1(event.target.value), setNewCV(""), setNewAdmin(""), setNewGrading(""), setNewInterview(""), setNewResult(""), setNewSummary(""), setId(userId);
                   }}
                 >
                   <option>Select an option</option>

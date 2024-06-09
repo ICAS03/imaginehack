@@ -55,10 +55,10 @@ const navbar = () => {
           </Link>
         </li>
         <li>
-          <CgList size={20} className="navbar-icon" />
-          <Link to="/Profile" className="nav-menu-link">
+          <CgList size={20} className="navbar-icon" />My Application
+          {/*<Link to="/Profile" className="nav-menu-link">
             My Application
-          </Link>
+          </Link>*/}
         </li>
       </ul>
       <hr className="navbar-line" />
