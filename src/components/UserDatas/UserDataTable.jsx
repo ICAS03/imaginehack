@@ -28,7 +28,6 @@ const UserDataTable = ({ userData }) => {
             <th className="table-head-cell">Grading</th>
             <th className="table-head-cell">Position 1</th>
             <th className="table-head-cell">Position 2</th>
-            <th className="table-head-cell">Summary</th>
             <th className="table-head-cell">View More</th>
           </tr>
         </thead>
@@ -47,7 +46,6 @@ const UserDataTable = ({ userData }) => {
               </td>
               <td className="table-cell">{user.position1}</td>
               <td className="table-cell">{user.position2}</td>
-              <td className="table-cell">{user.summary}</td>
               <td className="table-cell">
                 <button
                   className="view-more-button"
